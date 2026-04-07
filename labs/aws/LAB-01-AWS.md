@@ -28,6 +28,7 @@ Determine your installed Terraform version:
 ```bash
 terraform version
 ```
+![alt text](image.png)
 
 Note this version number as you'll need it for the provider configuration.
 
@@ -39,6 +40,7 @@ Create a labs directory and a terraform directory within it that will serve as y
 mkdir -p labs/aws/terraform
 cd labs/aws/terraform
 ```
+![alt text](image-1.png)
 
 Create the initial configuration files in this directory:
 
@@ -59,6 +61,7 @@ labs/
 
 This directory will be your working environment for the upcoming labs as we build our infrastructure incrementally.
 
+![alt text](image-2.png)
 
 ### 3. Configure the AWS Provider
 
@@ -79,6 +82,7 @@ provider "aws" {
   region = "us-east-1"
 }
 ```
+![alt text](image-6.png)
 
 ### 4. Format the Configuration
 
@@ -87,6 +91,7 @@ Run the following command to ensure consistent formatting:
 ```bash
 terraform fmt
 ```
+![alt text](image-4.png)
 
 Expected output: If any files were formatted, their names will be listed. If no formatting was needed, there will be no output.
 
@@ -111,6 +116,7 @@ you run "terraform init" in the future.
 
 Terraform has been successfully initialized!
 ```
+![alt text](image-5.png)
 
 ### 6. Validate the Configuration
 
@@ -124,6 +130,7 @@ Expected output:
 ```
 Success! The configuration is valid.
 ```
+![alt text](image-7.png)
 
 ### 7. Test Version Constraints
 
@@ -134,6 +141,7 @@ Let's experiment with version constraints:
 ```hcl
 required_version = ">= 99.0.0"  # An intentionally high version
 ```
+![alt text](image-8.png)
 
 2. Run the terraform initialization command:
 
@@ -150,12 +158,14 @@ Initializing the backend...
 │   on providers.tf line 2, in terraform:
 │    2:   required_version = ">= 99.0.0" # Replace with your installed version
 ```
+![alt text](image-9.png)
 
 3. Change the version requirement back to your current version:
 
 ```hcl
 required_version = ">= 1.10.x"  # Replace with your actual version
 ```
+![alt text](image-10.png)
 
 4. Run terraform init again:
 
@@ -164,6 +174,7 @@ terraform init
 ```
 
 Expected output: You should now see success messages indicating proper initialization.
+![alt text](image-11.png)
 
 ## Verification Steps
 
@@ -179,6 +190,7 @@ labs/
     ├── providers.tf
     └── variables.tf
 ```
+![alt text](image-12.png)
 
 2. Verify the following:
    - The `.terraform` directory exists after initialization
