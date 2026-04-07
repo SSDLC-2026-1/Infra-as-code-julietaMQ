@@ -25,6 +25,7 @@ In this lab, you will create your first GitHub resources using Terraform: a repo
 2. In the left sidebar, click  Developer settings.
 
 3. In the left sidebar, under  Personal access tokens, click Tokens (classic).
+![alt text](image-13.png)
 
 4. Select Generate new token, then click Generate new token (classic).
 
@@ -55,6 +56,7 @@ If you're in a different directory, change to the Terraform working directory:
 ```bash
 cd labs/github/terraform
 ```
+![alt text](image-14.png)
 
 ### 2. Configure GitHub Credentials
 
@@ -63,7 +65,7 @@ Set your GitHub credentials as environment variables:
 ```bash
 export GITHUB_TOKEN="your_personal_access_token"
 ```
-
+![alt text](image-15.png)
 ### 3. Add Resource Configuration
 
 Open `main.tf` and add the following configuration (purposely not written in HCL canonical style).
@@ -104,6 +106,7 @@ resource "github_branch_protection" "main" {
   }
 }
 ```
+![alt text](image-16.png)
 
 ### 4. Format and Validate
 
@@ -111,11 +114,13 @@ Format your configuration to rewrite it to follow HCL style:
 ```bash
 terraform fmt
 ```
+![alt text](image-17.png)
 
 Validate the syntax:
 ```bash
 terraform validate
 ```
+![alt text](image-18.png)
 
 ### 5. Review the Plan
 
@@ -128,6 +133,8 @@ The plan output will show that Terraform intends to create:
 - A new private repository with specified features
 - A branch protection rule requiring one review for the main branch
 
+![alt text](image-19.png)
+
 ### 6. Apply the Configuration
 
 Apply the configuration to create the resources:
@@ -136,6 +143,8 @@ terraform apply
 ```
 
 Review the proposed changes and type `yes` when prompted to confirm.
+
+![alt text](image-20.png)
 
 ### 7. Verify the Resources
 
@@ -151,6 +160,8 @@ Let's verify our resources in the GitHub web interface:
 5. Navigate to Settings → Branches to verify:
    - The branch protection rule is applied to the main branch
    - Pull request reviews are required
+
+![alt text](image-21.png)   
 
 ### 8. Update the Repository Settings
 
@@ -175,6 +186,7 @@ resource "github_repository" "terraform" {
   topics = ["terraform", "infrastructure-as-code", "learning"]  # <-- add topic
 }
 ```
+![alt text](image-22.png)
 
 ### 9. Run a Terraform Plan to Perform a Dry Run
 
@@ -187,6 +199,8 @@ The plan output will show that Terraform will update the repository in-place:
 - The description will be updated
 - Wiki feature will be disabled
 - A new topic will be added
+
+![alt text](image-23.png)
 
 ### 10. Apply the Configuration
 
@@ -211,6 +225,7 @@ resource "github_branch_protection" "main" {
   }
 }
 ```
+![alt text](image-24.png)
 
 ### 12. Run a Terraform Plan to Perform a Dry Run
 
@@ -222,12 +237,15 @@ terraform plan
 The plan output will show that Terraform will update the branch protection rule:
 - Required reviewers will be increased to `2`
 
+![alt text](image-25.png)
+
 ### 13. Apply the Configuration
 
 Apply the configuration to update the branch protection:
 ```bash
 terraform apply
 ```
+![alt text](image-26.png)
 
 Review the proposed changes and type `yes` when prompted to confirm.
 
@@ -240,6 +258,7 @@ Confirm that:
    - Wiki disabled
    - Branch protection requiring `2` reviewers
 2. A `terraform.tfstate` file exists in your directory
+![alt text](image-27.png)
 3. All Terraform commands completed successfully
 
 ## Success Criteria
