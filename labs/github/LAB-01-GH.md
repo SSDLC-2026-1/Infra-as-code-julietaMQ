@@ -28,6 +28,7 @@ Determine your installed Terraform version:
 ```bash
 terraform version
 ```
+![alt text](image.png)
 
 Note this version number as you'll need it for the provider configuration.
 
@@ -39,6 +40,7 @@ Create a labs directory and a terraform directory within it that will serve as y
 mkdir -p labs/github/terraform
 cd labs/github/terraform
 ```
+![alt text](image-1.png)
 
 Create the initial configuration files in this directory:
 
@@ -57,6 +59,7 @@ labs/
       ├── providers.tf
       └── variables.tf
 ```
+![alt text](image-2.png)
 
 This directory will be your working environment for the upcoming labs as we build our infrastructure incrementally.
 
@@ -77,6 +80,7 @@ terraform {
 
 provider "github" {}
 ```
+![alt text](image-3.png)
 
 ### 4. Format the Configuration
 
@@ -85,6 +89,7 @@ Run the following command to ensure consistent formatting:
 ```bash
 terraform fmt
 ```
+![alt text](image-4.png)
 
 Expected output: If any files were formatted, their names will be listed. If no formatting was needed, there will be no output.
 
@@ -108,6 +113,7 @@ If you'd like to know more about provider signing, you can read about it here:
 https://www.terraform.io/docs/cli/plugins/signing.html
 Terraform has created a lock file .terraform.lock.hcl to record the provider
 ```
+![alt text](image-5.png)
 
 ### 6. Validate the Configuration
 
@@ -121,6 +127,7 @@ Expected output:
 ```
 Success! The configuration is valid.
 ```
+![alt text](image-6.png)
 
 ### 7. Test Version Constraints
 
@@ -131,6 +138,7 @@ Let's experiment with version constraints:
 ```hcl
 required_version = ">= 99.0.0"  # An intentionally high version
 ```
+![alt text](image-7.png)
 
 2. Run the terraform initialization command:
 
@@ -145,18 +153,21 @@ Error: Unsupported Terraform Core version
 This configuration requires Terraform version >= 99.0.0, but the current version
 is x.x.x. Please upgrade Terraform to a supported version.
 ```
+![alt text](image-8.png)
 
 3. Change the version requirement back to your current version:
 
 ```hcl
 required_version = ">= 1.10.x"  # Replace with your actual version
 ```
+![alt text](image-10.png)
 
 4. Run terraform init again:
 
 ```bash
 terraform init
 ```
+![alt text](image-11.png)
 
 Expected output: You should now see success messages indicating proper initialization.
 
@@ -174,6 +185,7 @@ labs/
     ├── .terraform.lock.hcl
     └── .terraform/
 ```
+![alt text](image-12.png)
 
 2. Verify the following:
    - The `.terraform` directory exists after initialization
